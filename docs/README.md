@@ -54,13 +54,13 @@ If needed, provide a URL path to a CSS stylesheet to override the styles of the 
 
 The PowerReviews app integrates with the following store framework blocks.
 
-| Block name                      | Description                                                                                                              |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `product-reviews`               | Display a paginated list of reviews for the product being viewed. This must be placed on the `store.product` page.       |
-| `product-rating-summary`        | Display the average rating for the product being viewed. This must be placed on the `store.product` page.                |
-| `product-rating-inline`         | Display the average rating for the product being, intended for use on the product shelf. viewed.                         |
-| `product-review-form`           | Display the PowerReviews Write-a-Review form component. This must be placed on the `product-review-form` page.parameter. |
-| `product-questions-and-answers` | Display the PowerReviews Questions & Answers component for the product being viewed.                                     |
+| Block name                      | Description                                                                                                        |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `product-reviews`               | Display a paginated list of reviews for the product being viewed. This must be placed on the `store.product` page. |
+| `product-rating-summary`        | Display the average rating for the product being viewed. This must be placed on the `store.product` page.          |
+| `product-rating-inline`         | Display the average rating for the product being viewed, intended for use on the product shelf.                    |
+| `product-review-form`           | Display the PowerReviews Write-a-Review form component. This must be placed on the `product-review-form` page.     |
+| `product-questions-and-answers` | Display the PowerReviews Questions & Answers component for the product being viewed.                               |
 
 An example of the blocks above in use:
 
