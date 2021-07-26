@@ -3,7 +3,7 @@
   "name": "powerreviews",
   "title": "PowerReviews",
   "description": "The most advanced collection and custom display capabilities delivering relevant and authentic shopping experiences across touch points and channels. More reviews. More trust. More sales.",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "defaultLocale": "pt-BR",
   "builders": {
     "react": "3.x",
