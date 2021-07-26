@@ -3,13 +3,13 @@
   "headline": "Integre o PowerReviews com a sua loja VTEX IO.",
   "overview": "Faça a integração com o PowerReviews para adicionar classificações e comentários sobre produtos, além de outros recursos, à sua loja VTEX IO.",
   "features": [
-    "Exibe a classificação dos produtos nas PDPs e nas prateleiras de produtos",
-    "Permite que os clientes leiam e filtrem comentários nas PDPs",
-    "Permite que os clientes enviem suas classificações e seus comentários sobre os produtos",
-    "Permite que os clientes façam perguntas e adicionem respostas sobre os produtos"
+    "Disponibilização de leitura e filtro de comentários",
+    "Avaliações de produtos nas PDPs e prateleiras de produtos",
+    "Disponibilização de classificações e comentários",
+    "Permite que clientes façam perguntas e respostas sobre os produtos"
   ],
   "websiteURL": "https://vtex.com/",
   "support": {
-      "url": "https://help-tickets.vtex.com/en/support?app=vtex.powerreviews"
-    }
+    "url": "https://help-tickets.vtex.com/en/support?app=vtex.powerreviews"
+  }
 }
