@@ -3,13 +3,13 @@
   "headline": "Integrate PowerReviews with your VTEX IO store.",
   "overview": "Integrate with PowerReviews to bring product ratings and reviews and other features to your VTEX IO store.",
   "features": [
-    "Display product ratings on the PDP and product shelves",
-    "Allow shoppers to read and filter reviews on the PDP",
-    "Allow shoppers to submit their own product ratings and reviews",
-    "Allow shoppers to ask and answer questions about products"
+    "Read and filter review comments",
+    "Product ratings on PDPs and product shelves",
+    "Add a product rating",
+    "Allow users to ask and answer questions about products"
   ],
   "websiteURL": "https://vtex.com/",
   "support": {
-      "url": "https://help-tickets.vtex.com/en/support?app=vtex.powerreviews"
-    }
-} 
+    "url": "https://help-tickets.vtex.com/en/support?app=vtex.powerreviews"
+  }
+}
