@@ -1,7 +1,7 @@
 {
   "store/power-reviews.numberOfReviews": "{number, plural, =0 {0 reviews} =1 {1 review} other {# reviews}}",
   "store/power-reviews.writeAReview": "Write a review",
-  "store/power-reviews.noReviews":"No reviews",
+  "store/power-reviews.noReviews": "No reviews",
   "store/power-reviews.loadingReviews": "Loading reviews",
   "store/power-reviews.bottomLine": "In short",
   "store/power-reviews.recommend": "{recommend, select, No {I would not recommend to a friend} other {I would recommend to a friend}}",
