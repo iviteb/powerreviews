@@ -27,9 +27,6 @@ const RatingSummary: FC<Props> = ({ appSettings }) => {
         writeReviewLink={writeReviewLink}
         rating={0}
         numberOfReviews={0}
-        productUrl={''}
-        productId={''}
-        productName={''}
       />
     )
   }
@@ -74,9 +71,9 @@ interface SummaryProps {
   rating: number
   numberOfReviews: number
   loading: boolean
-  productUrl: string
-  productId: string
-  productName: string
+  productUrl?: string
+  productId?: string
+  productName?: string
 }
 
 const CSS_HANDLES = [
@@ -90,9 +87,9 @@ const Summary: FC<SummaryProps> = ({
   loading,
   rating,
   numberOfReviews,
-  productUrl,
-  productId,
-  productName,
+  productUrl = '',
+  productId = '',
+  productName = '',
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
 
@@ -100,13 +97,15 @@ const Summary: FC<SummaryProps> = ({
     <div
       className={`${handles.powerReviewsRatingSummary} review__rating mw8 center mb5`}
     >
-      <AggregateStructuredData
-        productName={productName}
-        productId={productId}
-        productUrl={productUrl}
-        average={rating}
-        total={numberOfReviews}
-      />
+      {productUrl ? (
+        <AggregateStructuredData
+          productName={productName}
+          productId={productId}
+          productUrl={productUrl}
+          average={rating}
+          total={numberOfReviews}
+        />
+      ) : null}
       <Stars rating={rating} />
       <a
         href="#all-reviews"

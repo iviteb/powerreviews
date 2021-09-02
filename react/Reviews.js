@@ -23,6 +23,7 @@ import {
   Button,
 } from 'vtex.styleguide'
 import useFeedless from './modules/useFeedless'
+import ReviewStructuredData from './components/ReviewStructuredData'
 
 const IMAGES_URI_PREFIX = '//images.powerreviews.com'
 
@@ -398,11 +399,27 @@ const Reviews = props => {
 
   const formattedFilters = filters(formatMessage)
 
+  //Schema.org's reviews structure
+  const reviewsList = state.reviews.map(review => ({
+    Rating: review.metrics.rating,
+    UserNickname: review.details.nickname,
+    ReviewText: review.details.comments,
+    SubmissionTime: review.details.created_date,
+  }))
+
   return (
     <div
       className={`${handles.powerReviewsWrapper} review mw8 center ph5`}
       id="all-reviews"
     >
+      {reviewsList.length > 0 ? (
+        <ReviewStructuredData
+          productName={product.productName}
+          productId={product.productId}
+          productUrl={product.link}
+          reviews={reviewsList}
+        />
+      ) : null}
       <h3
         className={`${handles.powerReviewsTitle} review__title t-heading-3 bb b--muted-5 mb5`}
       >
