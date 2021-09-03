@@ -47,8 +47,6 @@ const ReviewStructuredData: FC<Props> = ({
     name: productName,
     review: reviewsListStructured,
   }
-  // eslint-disable-next-line no-console
-  console.log(reviewStructuredData)
 
   return (
     <script
