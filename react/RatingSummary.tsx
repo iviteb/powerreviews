@@ -6,6 +6,7 @@ import queryRatingSummary from './graphql/queries/queryRatingSummary.gql'
 import { withApollo, Query } from 'react-apollo'
 import { Link } from 'vtex.render-runtime'
 import { useCssHandles } from 'vtex.css-handles'
+import AggregateStructuredData from './components/AggregateStructuredData'
 
 interface Props {
   appSettings: Settings
@@ -49,13 +50,15 @@ const RatingSummary: FC<Props> = ({ appSettings }) => {
           data && data.productReviews && data.productReviews.results[0].rollup
         const rating = rollup ? rollup.average_rating : 0
         const numberOfReviews = rollup ? rollup.review_count : 0
-
         return (
           <Summary
             loading={loading}
             writeReviewLink={writeReviewLink}
             rating={rating}
             numberOfReviews={numberOfReviews}
+            productUrl={product.link}
+            productId={product.productId}
+            productName={product.name}
           />
         )
       }}
@@ -68,6 +71,9 @@ interface SummaryProps {
   rating: number
   numberOfReviews: number
   loading: boolean
+  productUrl?: string
+  productId?: string
+  productName?: string
 }
 
 const CSS_HANDLES = [
@@ -81,6 +87,9 @@ const Summary: FC<SummaryProps> = ({
   loading,
   rating,
   numberOfReviews,
+  productUrl = '',
+  productId = '',
+  productName = '',
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
 
@@ -88,6 +97,15 @@ const Summary: FC<SummaryProps> = ({
     <div
       className={`${handles.powerReviewsRatingSummary} review__rating mw8 center mb5`}
     >
+      {productUrl ? (
+        <AggregateStructuredData
+          productName={productName}
+          productId={productId}
+          productUrl={productUrl}
+          average={rating}
+          total={numberOfReviews}
+        />
+      ) : null}
       <Stars rating={rating} />
       <a
         href="#all-reviews"
