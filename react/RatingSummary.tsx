@@ -56,7 +56,7 @@ const RatingSummary: FC<Props> = ({ appSettings }) => {
             writeReviewLink={writeReviewLink}
             rating={rating}
             numberOfReviews={numberOfReviews}
-            productUrl={product.link}
+            productUrl={product.linkText}
             productId={product.productId}
             productName={product.name}
           />

@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { getBaseUrl } from '../modules/baseUrl'
 
 interface Review {
   Rating: number
@@ -39,10 +40,12 @@ const ReviewStructuredData: FC<Props> = ({
     }
   })
 
+  const baseUrl = getBaseUrl()
+
   const reviewStructuredData = {
     '@context': 'http://schema.org',
     '@type': 'Product',
-    '@id': productUrl,
+    '@id': `${baseUrl}/${productUrl}/p`,
     mpn: productId,
     name: productName,
     review: reviewsListStructured,
