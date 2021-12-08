@@ -6,6 +6,7 @@ declare module 'vtex.render-runtime' {
     query: {
       [key: string]: string
     }
+    page: string
   }
 
   export const Link

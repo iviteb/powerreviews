@@ -4,7 +4,7 @@ import { ProductContext } from 'vtex.product-context'
 import Stars from './components/Stars'
 import queryRatingSummary from './graphql/queries/queryRatingSummary.gql'
 import { withApollo, Query } from 'react-apollo'
-import { Link } from 'vtex.render-runtime'
+import { Link, useRuntime } from 'vtex.render-runtime'
 import { useCssHandles } from 'vtex.css-handles'
 import AggregateStructuredData from './components/AggregateStructuredData'
 
@@ -92,12 +92,13 @@ const Summary: FC<SummaryProps> = ({
   productName = '',
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
+  const { page } = useRuntime()
 
   return (
     <div
       className={`${handles.powerReviewsRatingSummary} review__rating mw8 center mb5`}
     >
-      {productUrl ? (
+      {page === 'store.product' && productUrl ? (
         <AggregateStructuredData
           productName={productName}
           productId={productId}
