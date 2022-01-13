@@ -416,7 +416,7 @@ const Reviews = props => {
         <ReviewStructuredData
           productName={product.productName}
           productId={product.productId}
-          productUrl={product.link}
+          productUrl={product.linkText}
           reviews={reviewsList}
         />
       ) : null}
