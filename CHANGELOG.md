@@ -7,8 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Quality engineering actions
+
 ## [2.3.1] - 2022-01-13
+
 ### Changed
+
 - Use product's URI as @id on `Product` schema for `RatingSummary` and `Reviews` blocks.
 
 ## [2.3.0] - 2021-09-03
