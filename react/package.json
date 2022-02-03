@@ -37,5 +37,5 @@
     "vtex.store-image": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-image@0.14.2/public/@types/vtex.store-image",
     "vtex.styleguide": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.145.2/public/@types/vtex.styleguide"
   },
-  "version": "2.3.0"
+  "version": "2.3.1"
 }

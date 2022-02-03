@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { getBaseUrl } from '../modules/baseUrl'
 
 interface Props {
   productName: string
@@ -19,10 +20,12 @@ const AggregateStructuredData: FC<Props> = ({
     return null
   }
 
+  const baseUrl = getBaseUrl()
+
   const aggregate = {
     '@context': 'http://schema.org',
     '@type': 'Product',
-    '@id': productUrl,
+    '@id': `${baseUrl}/${productUrl}/p`,
     mpn: productId,
     name: productName,
     aggregateRating: {
