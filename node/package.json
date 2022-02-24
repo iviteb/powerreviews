@@ -7,7 +7,7 @@
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "@vtex/api": "6.45.4",
+    "@vtex/api": "6.45.6",
     "eslint": "^5.16.0",
     "eslint-config-vtex": "^10.1.0",
     "prettier": "^1.18.2",

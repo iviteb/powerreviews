@@ -9,6 +9,7 @@ const CSS_HANDLES = ['legacyReviewDisplay'] as const
 const LegacyReviews = ({ appSettings }: { appSettings: Settings }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const [isComponentLoaded, setComponentLoaded] = useState(false)
+  const [refProd, setRefProd] = useState(null)
 
   const {
     culture: { locale },
@@ -31,7 +32,16 @@ const LegacyReviews = ({ appSettings }: { appSettings: Settings }) => {
   })
 
   useEffect(() => {
-    if (shouldRenderComponent && !isComponentLoaded) {
+    if (
+      shouldRenderComponent &&
+      (!isComponentLoaded || product.productId !== refProd)
+    ) {
+      if (product.productId !== refProd) {
+        const container = document.getElementById('pr-reviewdisplay')
+        if (container) {
+          container.innerHTML = ''
+        }
+      }
       /* eslint-disable @typescript-eslint/camelcase */
       window.POWERREVIEWS.display.render({
         api_key: appKey,
@@ -48,6 +58,7 @@ const LegacyReviews = ({ appSettings }: { appSettings: Settings }) => {
         },
       })
       setComponentLoaded(true)
+      setRefProd(product.productId)
     }
   }, [
     shouldRenderComponent,
@@ -59,6 +70,7 @@ const LegacyReviews = ({ appSettings }: { appSettings: Settings }) => {
     product,
     appSettings.uniqueId,
     legacyReviewsStyleSheetSrc,
+    refProd,
   ])
 
   return <div className={handles.legacyReviewDisplay} id="pr-reviewdisplay" />

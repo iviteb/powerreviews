@@ -1,9 +1,9 @@
 {
-  "vendor": "vtex",
+  "vendor": "fstudio",
   "name": "powerreviews",
   "title": "PowerReviews",
   "description": "The most advanced collection and custom display capabilities delivering relevant and authentic shopping experiences across touch points and channels. More reviews. More trust. More sales.",
-  "version": "2.3.1",
+  "version": "0.0.0",
   "defaultLocale": "pt-BR",
   "builders": {
     "react": "3.x",
@@ -14,7 +14,6 @@
     "pixel": "0.x",
     "docs": "0.x"
   },
-  "credentialType": "absolute",
   "policies": [
     {
       "name": "vbase-read-write"
@@ -36,9 +35,7 @@
   ],
   "mustUpdateAt": "2020-01-22",
   "categories": [],
-  "registries": [
-    "smartcheckout"
-  ],
+  "registries": ["smartcheckout"],
   "scripts": {
     "postreleasy": "vtex publish --verbose"
   },
@@ -67,11 +64,7 @@
       "uniqueId": {
         "type": "string",
         "access": "public",
-        "enum": [
-          "productId",
-          "linkText",
-          "productReference"
-        ],
+        "enum": ["productId", "linkText", "productReference"],
         "default": "linkText",
         "title": "API Unique Id",
         "description": "The Unique Id referencing to the product id to get the reviews"
@@ -119,9 +112,7 @@
       "url": "https://help-tickets.vtex.com/en/support?app=vtex.powerreviews"
     },
     "type": "free",
-    "availableCountries": [
-      "*"
-    ]
+    "availableCountries": ["*"]
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
