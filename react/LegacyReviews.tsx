@@ -1,7 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { ProductContext } from 'vtex.product-context'
+import React, { useEffect, useState } from 'react'
+import { useProduct } from 'vtex.product-context'
 import { useRuntime } from 'vtex.render-runtime'
 import { useCssHandles } from 'vtex.css-handles'
+import { path } from 'ramda'
+import { useQuery } from 'react-apollo'
+import GET_SKU_QUERY from './graphql/queries/sku.gql'
+
 import useShouldRenderComponent from './modules/useShouldRenderComponent'
 
 const CSS_HANDLES = ['legacyReviewDisplay'] as const
@@ -14,7 +18,7 @@ const LegacyReviews = ({ appSettings }: { appSettings: Settings }) => {
   const {
     culture: { locale },
   } = useRuntime()
-  const { product } = useContext(ProductContext)
+  const { product, selectedItem } = useProduct()
   const {
     appKey,
     merchantId,
@@ -31,7 +35,23 @@ const LegacyReviews = ({ appSettings }: { appSettings: Settings }) => {
     product,
   })
 
+  const { data, loading } = useQuery(GET_SKU_QUERY, {
+    variables: {
+      identifier: { field: 'id', value: selectedItem.itemId },
+    },
+    skip: !selectedItem.itemId,
+    ssr: false,
+  })
+
+  const upc: string | undefined = path(['ean'], selectedItem)
+  const manufacturerId: string | undefined = path(
+    ['sku', 'manufacturerCode'],
+    data
+  )
   useEffect(() => {
+    if (loading) {
+      return
+    }
     if (
       shouldRenderComponent &&
       (!isComponentLoaded || product.productId !== refProd)
@@ -56,6 +76,10 @@ const LegacyReviews = ({ appSettings }: { appSettings: Settings }) => {
         components: {
           ReviewDisplay: 'pr-reviewdisplay',
         },
+        product: {
+          upc,
+          manufacturer_id: manufacturerId,
+        },
       })
       setComponentLoaded(true)
       setRefProd(product.productId)
@@ -71,6 +95,9 @@ const LegacyReviews = ({ appSettings }: { appSettings: Settings }) => {
     appSettings.uniqueId,
     legacyReviewsStyleSheetSrc,
     refProd,
+    loading,
+    upc,
+    manufacturerId,
   ])
 
   return <div className={handles.legacyReviewDisplay} id="pr-reviewdisplay" />

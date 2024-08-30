@@ -1,0 +1,5 @@
+query GetSku($identifier: SKUUniqueIdentifier) {
+  sku(identifier: $identifier) {
+    manufacturerCode
+  }
+}

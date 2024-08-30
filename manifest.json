@@ -35,7 +35,9 @@
   ],
   "mustUpdateAt": "2020-01-22",
   "categories": [],
-  "registries": ["smartcheckout"],
+  "registries": [
+    "smartcheckout"
+  ],
   "scripts": {
     "postreleasy": "vtex publish --verbose"
   },
@@ -64,7 +66,11 @@
       "uniqueId": {
         "type": "string",
         "access": "public",
-        "enum": ["productId", "linkText", "productReference"],
+        "enum": [
+          "productId",
+          "linkText",
+          "productReference"
+        ],
         "default": "linkText",
         "title": "API Unique Id",
         "description": "The Unique Id referencing to the product id to get the reviews"
@@ -105,14 +111,17 @@
     "vtex.store": "2.x",
     "vtex.pixel-interfaces": "1.x",
     "vtex.store-image": "0.x",
-    "vtex.css-handles": "0.x"
+    "vtex.css-handles": "0.x",
+    "vtex.catalog-graphql": "1.x"
   },
   "billingOptions": {
     "support": {
       "url": "https://help-tickets.vtex.com/en/support?app=vtex.powerreviews"
     },
     "type": "free",
-    "availableCountries": ["*"]
+    "availableCountries": [
+      "*"
+    ]
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

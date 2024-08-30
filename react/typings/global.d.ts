@@ -87,8 +87,9 @@ interface PowerReviewsProduct {
   description?: string
   category_name?: string
   upc?: string
+  manufacturer_id?: string
   brand_name?: string
   price?: string | number
-  in_stock: boolean
+  in_stock?: boolean
   variants?: PowerReviewsProduct[]
 }
